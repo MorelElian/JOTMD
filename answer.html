@@ -40,6 +40,7 @@
             margin-top: 20px;
             opacity: 0;
             transition: opacity 2s ease-in-out;
+            display: block;
         }
     </style>
 </head>
@@ -48,8 +49,8 @@
     <h2 class="subtitle">Rdv avt 18h30</h2>
     <h2 class="matos">Matos : Comme d'habitude, affaires chaudes de "rando qui craignent pas"</h2>
     <div class="qrcode">
-        <img src="qrcode1.jpg" alt="QR Code 1">
-        <img src="qrcode2.jpg" alt="QR Code 2">
+        <img id="qr1" src="qrcode1.jpg" alt="QR Code 1">
+        <img id="qr2" src="qrcode2.jpg" alt="QR Code 2">
     </div>
 
     <script>
@@ -62,8 +63,14 @@
         }, 5000);
         
         setTimeout(() => {
-            document.querySelectorAll('.qrcode img').forEach(img => img.style.opacity = "1");
+            document.getElementById('qr1').style.opacity = "1";
+            document.getElementById('qr1').style.display = "block";
         }, 7000);
+        
+        setTimeout(() => {
+            document.getElementById('qr2').style.opacity = "1";
+            document.getElementById('qr2').style.display = "block";
+        }, 8000);
     </script>
 </body>
 </html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Départ - Gare Saint Lazare</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .title {
+            font-size: 4rem;
+            opacity: 0;
+            animation: spinGrow 3s ease-in-out forwards;
+        }
+        @keyframes spinGrow {
+            0% { transform: scale(0.5) rotate(0deg); color: red; opacity: 0; }
+            25% { transform: scale(1.5) rotate(180deg); color: blue; opacity: 1; }
+            50% { transform: scale(1) rotate(360deg); color: yellow; }
+            75% { transform: scale(1.3) rotate(180deg); color: green; }
+            100% { transform: scale(1) rotate(0deg); color: white; opacity: 1; }
+        }
+        .subtitle, .matos, .qrcode {
+            font-size: 2rem;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+        .qrcode img {
+            width: 200px;
+            height: auto;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">DEPART : GARE SAINT LAZARE</h1>
+    <h2 class="subtitle">Rdv avt 18h30</h2>
+    <h2 class="matos">Matos : Comme d'habitude, affaires chaudes de "rando qui craignent pas"</h2>
+    <div class="qrcode">
+        <img src="qrcode1.jpg" alt="QR Code 1">
+        <img src="qrcode2.jpg" alt="QR Code 2">
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.querySelector('.subtitle').style.opacity = "1";
+        }, 3000);
+        
+        setTimeout(() => {
+            document.querySelector('.matos').style.opacity = "1";
+        }, 5000);
+        
+        setTimeout(() => {
+            document.querySelectorAll('.qrcode img').forEach(img => img.style.opacity = "1");
+        }, 7000);
+    </script>
+</body>
+</html>

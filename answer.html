@@ -7,8 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #111;
-            color: white;
+            background-color: #fff;
+            color: black;
             text-align: center;
             font-family: Arial, sans-serif;
             height: 100vh;
@@ -17,60 +17,50 @@
             justify-content: center;
             align-items: center;
         }
-        .title {
-            font-size: 4rem;
-            opacity: 0;
-            animation: spinGrow 3s ease-in-out forwards;
-        }
-        @keyframes spinGrow {
-            0% { transform: scale(0.5) rotate(0deg); color: red; opacity: 0; }
-            25% { transform: scale(1.5) rotate(180deg); color: blue; opacity: 1; }
-            50% { transform: scale(1) rotate(360deg); color: yellow; }
-            75% { transform: scale(1.3) rotate(180deg); color: green; }
-            100% { transform: scale(1) rotate(0deg); color: white; opacity: 1; }
-        }
-        .subtitle, .matos, .qrcode {
+        .title, .subtitle, .matos, .qrcode {
             font-size: 2rem;
             opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+        .qrcode {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            opacity:0;
             transition: opacity 2s ease-in-out;
         }
         .qrcode img {
             width: 200px;
             height: auto;
-            margin-top: 20px;
-            opacity: 0;
-            transition: opacity 2s ease-in-out;
-            display: block;
+            filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
         }
     </style>
 </head>
 <body>
     <h1 class="title">DEPART : GARE SAINT LAZARE</h1>
-    <h2 class="subtitle">Rdv avt 18h30</h2>
-    <h2 class="matos">Matos : Comme d'habitude, affaires chaudes de "rando qui craignent pas"</h2>
-    <div class="qrcode">
+    <h2 class="subtitle">Rendez-vous avant 18h30</h2>
+    <h2 class="matos">Matos : Comme d'habitude, affaires chaudes et companie</h2>
+    <div id = "qrcode" class="qrcode">
         <img id="qr1" src="qrcode1.jpg" alt="QR Code 1">
         <img id="qr2" src="qrcode2.jpg" alt="QR Code 2">
     </div>
 
     <script>
         setTimeout(() => {
+            document.querySelector('.title').style.opacity = "1";
+        }, 0);
+        setTimeout(() => {
             document.querySelector('.subtitle').style.opacity = "1";
-        }, 3000);
+        }, 1000);
         
         setTimeout(() => {
             document.querySelector('.matos').style.opacity = "1";
-        }, 5000);
+        }, 2000);
         
         setTimeout(() => {
-            document.getElementById('qr1').style.opacity = "1";
-            document.getElementById('qr1').style.display = "block";
-        }, 7000);
-        
-        setTimeout(() => {
-            document.getElementById('qr2').style.opacity = "1";
-            document.getElementById('qr2').style.display = "block";
-        }, 8000);
+            document.getElementById('qrcode').style.opacity = "1";
+        }, 3000);
     </script>
 </body>
 </html>
